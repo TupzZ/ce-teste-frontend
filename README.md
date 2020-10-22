@@ -25,3 +25,25 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Componentes
+
+# Header
+
+Ícone para abertura da barra de navegação e logo da Capital Empreendedor que redireciona para a home.
+
+# Barra de navegação
+
+Barra lateral com acesso para as duas páginas principais da aplicação (home e clientes).
+
+# Home
+
+Visualização do nome, email e status de 2 clientes, podendo visualizar nome da instituição, limite e situação da oportunidade, ao clicar no cliente desejado, clicando no ícone de informação, no lado direito do card do cliente, é redirecionado para a página de visualização do cliente selecionado.
+
+# Cliente
+
+Página com tabela que permite a visualização de todos clientes, e acesso a página de visualização do cliente selecionado, clicando no ícone de informação, à direita na tabela.
+
+# Cliente selecionado
+
+Visualização de todos os dados pessoais do cliente selecionado, além das oportunidades com todos as informações e um botão para alternar o status da oportunidade.
