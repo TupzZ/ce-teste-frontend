@@ -1,0 +1,65 @@
+<div class="container">
+    <mat-card class="home-card mat-elevation-z2">
+        <mat-card-header>
+            <mat-card-title>Home</mat-card-title>
+        </mat-card-header>
+        <hr>
+        <mat-card-content class="content">
+            <div class="clientes">
+                <h1>Capital Empreendedor: Teste Técnico - Desenvolvimento</h1>
+            </div>
+        </mat-card-content>
+    </mat-card>
+    <mat-card class="clientes-card mat-elevation-z3" (click)="toggleResetSelectUser()">
+        <mat-card-header>
+            <mat-card-title>Clientes</mat-card-title>
+        </mat-card-header>
+        <hr>
+        <mat-card-content class="previews">
+            <mat-list-item *ngFor="let user of usersInfo | keyvalue | slice:0:2">
+                <div class="cliente-item" (click)="toggleSelectUser(user.value.email);$event.stopImmediatePropagation();">
+                    <div class="cliente">
+                        <h3>{{ user.value.name }}</h3>
+                        <p class="op">{{ user.value.email }}</p>
+                        <p class="op" *ngIf="user.value.isActive">Usuário ativo</p>
+                    </div>
+                    <div class="info">
+                        <a (click)="goToClientDetails(user.value.email)">
+                            <i class="material-icons">
+                                info_outline
+                            </i>
+                        </a>
+                    </div>
+                </div>
+            </mat-list-item>
+            <a class="see-more" routerLink="clientes">
+                Veja mais clientes <span>-></span>
+            </a>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card class="oportunidades-card mat-elevation-z3">
+        <mat-card-header>
+            <mat-card-title>Oportunidades</mat-card-title>
+        </mat-card-header>
+        <hr>
+        <mat-card-content class="previews">
+            <mat-list-item *ngIf="userSelected != '';">
+                <div class="oportunidade-item" *ngFor="let opportunity of selectedOpportunities | slice:0:3; index as i">
+                    <div class="oportunidade">
+                        <h3>{{ opportunity.name }}</h3>
+                        <p class="op">{{ opportunity.limit | currency:'BRL':'symbol-narrow':'.2-2' }}</p>
+                        <p>{{ opportunity.value }}</p>
+                        <p *ngIf="opportunity.isActive">Oportunidade ativa</p>
+                    </div>
+                </div>
+                <div class="oportunidade" *ngIf="selectedOpportunities.length == 0;">
+                    <h3>Nenhuma oportunidade no momento.</h3>
+                </div>
+            </mat-list-item>
+            <div *ngIf="userSelected == '';">
+                <h3>Selecione um cliente para ver suas oprtunidades.</h3>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

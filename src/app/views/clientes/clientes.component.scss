@@ -1,0 +1,117 @@
+@import "variables";
+
+.container {
+  padding: 4%;
+
+  @media screen and (max-width: 1025px) {
+    padding: 7% 5%;
+  }
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4% 0;
+}
+
+.users-table {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid rgba(197, 197, 197, 0.5);
+  border-radius: 7px;
+
+  .header,
+  .par,
+  .impar {
+    padding: 2%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+
+    .email,
+    .telefone {
+      width: 22%;
+
+      @media screen and (max-width: 768px) {
+        width: 2%;
+      }
+    }
+
+    .email {
+      @media screen and (max-width: 768px) {
+        width: 28%;
+      }
+    }
+
+    .telefone {
+      @media screen and (max-width: 768px) {
+        width: 22%;
+      }
+    }
+
+    .ativo,
+    .termos,
+    .nome {
+      width: 15%;
+
+      @media screen and (max-width: 768px) {
+        width: 14%;
+      }
+    }
+
+    .info {
+      width: 8%;
+
+      @media screen and (max-width: 768px) {
+        width: 8%;
+        padding-right: 1%;
+      }
+    }
+
+    .email,
+    .telefone,
+    .ativo,
+    .termos,
+    .nome {
+      border-right: 1px solid #dedede;
+    }
+
+    @media screen and (max-width: 768px) {
+      font-size: 0.6rem;
+    }
+  }
+
+  .header {
+    background-color: #f1f1f1;
+    border-radius: 7px 7px 0 0;
+  }
+
+  .par {
+    background-color: #e2e2e2;
+  }
+
+  .impar {
+    background-color: #f1f1f1;
+  }
+
+  .header,
+  .par,
+  .impar {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  a {
+    cursor: pointer;
+    color: $secundary-color;
+  }
+
+  span {
+    @media screen and (max-width: 768px) {
+      height: 10vh;
+    }
+  }
+}

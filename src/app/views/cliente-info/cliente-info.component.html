@@ -1,0 +1,92 @@
+<div class="content" [ngClass]="userOpportunities.length == 0 ? 'noOpportunity' : ''">
+    <mat-card class="cliente mat-elevation-z2">
+        <mat-card-header>
+            <mat-card-title>
+                Dados pessoais
+            </mat-card-title>
+        </mat-card-header>
+        <hr>
+        <mat-card-content class="cliente-content flex">
+            <div class="cliente"></div>
+            <div class="cliente-data">
+                <div class="data">
+                    <h3><i class="material-icons">person</i>Nome:</h3>
+                    <p>{{ userInfo[0].name }}</p>
+                </div>
+                <div class="data"><span [ngClass]="userInfo[0].isActive ? 'active' : 'inactive'">{{ userInfo[0].isActive ? 'Ativo' : 'Inativo' }}</span></div>
+            </div>
+            <div class="cliente-data">
+                <div class="data">
+                    <h3><i class="material-icons">email</i>Email:</h3>
+                    <p>{{ userInfo[0].email }}</p>
+                </div>
+                <div class="data">
+                    <h3><i class="material-icons">monetization_on</i>Renda:</h3>
+                    <p>{{ userInfo[0].revenue | currency:'BRL':'symbol-narrow':'.2-2' }}</p>
+                </div>
+            </div>
+            <div class="cliente-data">
+                <div class="data">
+                    <h3><i class="material-icons">phone</i>Telefone:</h3>
+                    <p>{{ userInfo[0].phone }}</p>
+                </div>
+                <div class="data">
+                    <h3><i class="material-icons">text_snippet</i>Termo:</h3>
+                    <p>{{ userInfo[0].agreedTerms ? 'Aceito' : 'Não aceito' }}</p>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+    <mat-card class="mat-elevation-z2">
+        <mat-card-header>
+            <mat-card-title>
+                Oportunidades
+            </mat-card-title>
+        </mat-card-header>
+        <hr>
+        <mat-card-content class="flex">
+            <div class="oportunidade-content" *ngIf="userOpportunities.length != 0; else elseBlock;">
+                <div class="oportunidade" *ngFor="let opportunity of userOpportunities | keyvalue; index as i;">
+                    <div class="oportunidade-data">
+                        <div class="data">
+                            <h3><i class="material-icons">account_balance</i>Instituição:</h3>
+                            <p>{{ opportunity.value.name }}</p>
+                        </div>
+                        <div class="data">
+                            <h3><i class="material-icons">account_balance</i>Prazo:</h3>
+                            <p>{{ opportunity.value.term }} meses</p>
+                        </div>  
+                    </div>
+                    <div class="oportunidade-data">
+                        <div class="data">
+                            <h3><i class="material-icons">monetization_on</i>Limite:</h3>
+                            <p>{{ opportunity.value.limit | currency:'BRL':'symbol-narrow':'.2-2' }}</p>
+                        </div>
+                        <div class="data">
+                            <h3>Situação:</h3>
+                            <p class="status">
+                                <i class="material-icons" (click)="toggleIsActive(userInfo[0].email, i)" [ngClass]="opportunity.value.isActive ? 'active' : 'inactive'">
+                                    {{ opportunity.value.isActive ? 'toggle_on' : 'toggle_off' }}
+                                </i>
+                                {{ opportunity.value.isActive ? 'Ativa' : 'Inativa' }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="oportunidade-data">
+                        <div class="data">
+                            <h3><i class="material-icons">account_balance</i>Juros:</h3>
+                            <p>{{ (opportunity.value.interest*100).toFixed(2) }}%</p>
+                        </div>
+                        <div class="data">
+                        </div>
+                    </div>
+                </div>
+            </div>            
+            <ng-template class="elseBlock" #elseBlock>
+                <h2 class="else">
+                    Nenhuma oportunidade no momento.
+                </h2>
+            </ng-template>
+        </mat-card-content>
+    </mat-card>
+</div>

@@ -1,0 +1,141 @@
+@import "variables";
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 3% 0;
+
+  @media screen and(max-width: 1050px) {
+    padding: 3% 2%;
+  }
+}
+
+.home-card {
+  width: 96%;
+
+  @media screen and(max-width: 1050px) {
+    width: 100%;
+  }
+}
+
+.content {
+  width: 96%;
+  display: flex;
+  flex-direction: row;
+  padding: 2%;
+}
+
+.clientes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.oportunidades {
+  display: flex;
+  align-items: center;
+  padding: 1.5% 0 0 2%;
+  flex-grow: 1;
+}
+
+h1 {
+  color: #444444;
+  font-weight: 500;
+  font-size: 1.8rem;
+  line-height: 2rem;
+  width: 100%;
+  padding: 1% 0 1% 0;
+
+  span {
+    margin-left: 1%;
+    font-weight: 300;
+  }
+
+  i {
+    margin-right: 1%;
+    font-size: 2rem;
+    display: inline-flex;
+    vertical-align: top;
+    color: $primary-color;
+  }
+}
+
+.clientes-card,
+.oportunidades-card {
+  margin-top: 1.3%;
+  width: 46.1%;
+
+  @media screen and(max-width: 1050px) {
+    width: 100%;
+  }
+}
+
+.clientes-card {
+  margin-right: 2%;
+  @media screen and (max-width: 1050px) {
+    margin-right: 0;
+  }
+}
+
+.previews {
+  padding: 0 3.3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  h3 {
+    margin-top: 2%;
+    font-size: 1.1rem;
+  }
+  p {
+    margin-top: -1%;
+  }
+}
+
+.previews > a {
+  text-align: center;
+  margin: 5% 0;
+  padding: 2% 0;
+  background-color: $primary-color;
+  border-radius: 15px;
+  color: white;
+  text-decoration: none;
+  span {
+    font-family: "Fira Code";
+  }
+}
+
+.op {
+  margin-top: 10%;
+}
+
+.cliente-item,
+.oportunidade-item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  cursor: pointer;
+
+  .cliente {
+    flex-grow: 5;
+  }
+
+  .oportunidade {
+    flex-grow: 5;
+  }
+
+  .info {
+    flex-grow: 1;
+
+    a {
+      color: $secundary-color;
+      text-decoration: none;
+    }
+  }
+}
+
+.oportunidade-item {
+  cursor: unset;
+}

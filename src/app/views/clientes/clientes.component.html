@@ -1,0 +1,31 @@
+<div class="container">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Clientes</mat-card-title>
+        </mat-card-header>
+        <hr>
+        <mat-card-content class="content">
+            <table class="users-table">
+                <tr class="header">
+                    <th *ngFor="let head of header; index as i;" [ngClass]="rowClasses[i]">{{ head }}</th>
+                </tr>
+                <tr *ngFor="let user of usersInfo | keyvalue; index as i">
+                    <span [ngClass]="i % 2 == 0 ? 'par' : 'impar'" >
+                        <td class="nome">{{ user.value.name }}</td>
+                        <td class="email">{{ user.value.email }}</td>
+                        <td class="telefone">{{ user.value.phone }}</td>
+                        <td class="ativo">
+                            <span *ngIf="user.value.isActive; else elseBlock">Ativo</span>
+                            <ng-template #elseBlock>Não ativo</ng-template>
+                        </td>
+                        <td class="termos">
+                            <span *ngIf="user.value.agreedTerms; else naoAceito">Aceito</span>
+                            <ng-template #naoAceito>Não aceito</ng-template>
+                        </td>
+                        <td class="info"><a (click)="goToClientDetails(user.value.email)"><i class="material-icons">info_outline</i></a></td>
+                    </span>                
+                </tr>
+            </table>
+        </mat-card-content>
+    </mat-card>
+</div>

@@ -1,0 +1,17 @@
+@import "variables";
+
+.sidenav {
+  background-color: $primary-color;
+  width: 200px;
+  height: 100%;
+  position: absolute;
+  padding: 0 3%;
+  i {
+    padding-right: 10px;
+  }
+}
+
+.nav-list a {
+  color: white;
+  margin-bottom: 10px;
+}
