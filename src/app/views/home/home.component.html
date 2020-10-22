@@ -49,8 +49,8 @@
                     <div class="oportunidade">
                         <h3>{{ opportunity.name }}</h3>
                         <p class="op">{{ opportunity.limit | currency:'BRL':'symbol-narrow':'.2-2' }}</p>
-                        <p>{{ opportunity.value }}</p>
-                        <p *ngIf="opportunity.isActive">Oportunidade ativa</p>
+                        <p *ngIf="opportunity.isActive; else elseBlock;">Oportunidade ativa</p>
+                        <ng-template #elseBlock><p>Oportunidade inativa</p></ng-template>
                     </div>
                 </div>
                 <div class="oportunidade" *ngIf="selectedOpportunities.length == 0;">
